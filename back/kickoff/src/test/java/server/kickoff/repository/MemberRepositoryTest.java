@@ -24,15 +24,14 @@ class MemberRepositoryTest {
     @Transactional
     void save() {
         //given
-        Member member = new Member(
-                "memberId",
+        Member member = new Member();
+        member.settingMemberInfo("memberId",
                 "1234",
                 "memberA",
                 "F",
                 20,
                 "01096485709",
-                "GK",
-                new Timestamp(System.currentTimeMillis()));
+                "GK");
 
         //when
         Member savedMember = memberRepository.save(member);
