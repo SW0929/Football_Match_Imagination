@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/profileImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#03A9F4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/profileImageView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="Suspicious0dp">
+            <TextView
+                android:id="@+id/userIDProfileTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="7dp"
+                android:text="Id : "
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/userIDProfileValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="sjugas12"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/userPasswordProfileTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="7dp"
+                android:text="Password : "
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/userPasswordProfileValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="tmxkan12"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/userNameProfileTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="7dp"
+                android:text="Name : "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/userNameProfileValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Sangwon LEE"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/userAgeProfileTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="7dp"
+                android:text="Age : "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/userAgeProfileValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="25"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/userSexProfileTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="7dp"
+                android:text="Sex : "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/userSexProfileValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="male"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/userPositionProfileTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="7dp"
+                android:text="Position : "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/userPositionProfileValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="FW"
+                android:textSize="20sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/userPhoneNumberProfileTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="7dp"
+                android:text="PhoneNumber : "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/userPhoneNumberProfileValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="010-3262-0648"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
