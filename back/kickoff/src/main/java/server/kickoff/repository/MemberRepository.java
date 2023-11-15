@@ -2,7 +2,6 @@ package server.kickoff.repository;
 
 import server.kickoff.domain.Member;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface MemberRepository {
@@ -12,5 +11,7 @@ public interface MemberRepository {
     void update(Long memberId, MemberUpdateDto memberParam);
 
     Optional<Member> findById(Long id);
+
+    Optional<Member> findByLoginIdAndPassword(String id, String password);
 
 }
