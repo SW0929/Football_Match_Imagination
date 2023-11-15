@@ -1,10 +1,9 @@
 package server.kickoff.domain;
 
-import lombok.Getter;
+import lombok.*;
 
 import java.sql.Timestamp;
-
-@Getter
+@Data
 public class Member {
 
     private Long id;
