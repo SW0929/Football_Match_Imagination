@@ -42,6 +42,28 @@ class MemberRepositoryTest {
     }
 
     @Test
+    @Transactional
+    void findByLoginIdAndPassword() {
+        //given
+        Member member = new Member();
+        member.settingMemberInfo("memberId",
+                "1234",
+                "memberA",
+                "F",
+                20,
+                "01096485709",
+                "GK");
+        Member saveMember = memberRepository.save(member);
+
+        //when
+        Optional<Member> optionalMember = memberRepository.findByLoginIdAndPassword(saveMember.getUserId(), saveMember.getPassword());
+        Member loginMember = optionalMember.orElseThrow();
+
+        //then
+        assertThat(loginMember).isEqualTo(saveMember);
+    }
+
+    @Test
     void update() {
     }
 
