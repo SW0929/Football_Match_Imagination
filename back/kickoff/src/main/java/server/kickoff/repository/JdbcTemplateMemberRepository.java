@@ -58,7 +58,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
 
     @Override
     public Optional<Member> findByLoginIdAndPassword(String userId, String password) {
-        String sql = "select id, user_id, password, user_name, gender, age, phone_number, position, create_date from member where user_id = :user_id and passwor = :password";
+        String sql = "select id, user_id, password, user_name, gender, age, phone_number, position, create_date from member where user_id = :user_id and password = :password";
         try {
             SqlParameterSource param = new MapSqlParameterSource().addValue("user_id", userId).addValue("password", password);
             Member member = template.queryForObject(sql, param, MemberRowMapper());
