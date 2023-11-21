@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">front</string>
+    <string name="loginText">로그인</string>
+    <string name="signUp">회원 가입</string>
+</resources>
