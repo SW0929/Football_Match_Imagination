@@ -55,7 +55,7 @@
         <EditText
             android:id="@+id/userPasswordEditText"
             android:layout_width="200dp"
-            android:inputType="textEmailAddress"
+            android:inputType="textPassword"
             android:layout_height="wrap_content" />
 
 
@@ -132,15 +132,18 @@
             android:textSize="20sp" />
 
         <RadioGroup
+            android:id="@+id/userSexRadioGroup"
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <RadioButton
+                android:id="@+id/userSexMale"
                 android:text="male"
                 android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <RadioButton
+                android:id="@+id/userSexFemale"
                 android:text="female"
                 android:textSize="20sp"
                 android:layout_width="wrap_content"
