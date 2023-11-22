@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import server.kickoff.domain.Member;
 
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
@@ -61,6 +62,30 @@ class MemberRepositoryTest {
 
         //then
         assertThat(loginMember).isEqualTo(saveMember);
+    }
+
+    @Test
+    @Transactional
+    void findByUserId(){
+        //given
+        Member member = new Member();
+        member.settingMemberInfo("memberId",
+                "1234",
+                "memberA",
+                "F",
+                20,
+                "01096485709",
+                "GK");
+        Member saveMember = memberRepository.save(member);
+        //when
+        List<Member> members = memberRepository.findByUserId(saveMember.getUserId());
+        List<Member> emptyMembers = memberRepository.findByUserId("noDuplicate");
+        Member checkMember = members.get(0);
+
+        //then
+        assertThat(checkMember).isEqualTo(saveMember);
+        assertThat(emptyMembers).isEmpty();
+
     }
 
     @Test
