@@ -1,6 +1,7 @@
 package server.kickoff.controller;
 
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -19,8 +20,9 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    @PostMapping("/join")
-    public CreateMemberResponse joinMember(@RequestBody MemberJoinDto joinDto) {
+    @PostMapping("/user/join")
+    public CreateMemberResponse joinMember(@Valid @RequestBody MemberJoinDto joinDto) {
+
         Member member = new Member();
         member.settingMemberInfo( joinDto.getUserId(),
                 joinDto.getPassword(),
@@ -39,5 +41,6 @@ public class MemberController {
     @AllArgsConstructor
     static class CreateMemberResponse {
         private Long id;
+
     }
 }
