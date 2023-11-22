@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import server.kickoff.domain.Member;
 
 import javax.sql.DataSource;
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -54,6 +55,13 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
         } catch (EmptyResultDataAccessException e) {
             return Optional.empty();
         }
+    }
+
+    @Override
+    public List<Member> findByUserId(String userId) {
+        String sql = "select id, user_id, password, user_name, gender, age, phone_number, position, create_date from member where user_id = :user_id";
+        SqlParameterSource param = new MapSqlParameterSource("user_id", userId);
+        return template.query(sql, param, MemberRowMapper());
     }
 
     @Override
