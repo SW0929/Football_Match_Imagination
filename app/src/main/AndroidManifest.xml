@@ -25,11 +25,11 @@
 
         <activity android:name=".LogInActivity"/>
 
-        <activity android:name=".SignUpActivity"
-            android:parentActivityName=".LogInActivity">
-        </activity>
+        <activity android:name=".SignUpActivity"/>
 
         <activity android:name=".ProfileActivity"/>
+
+        <activity android:name=".RecruitActivity"/>
     </application>
 
 </manifest>

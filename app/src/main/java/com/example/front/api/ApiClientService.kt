@@ -1,6 +1,8 @@
 package com.example.front.api
 
+import com.example.front.model.ResponceDTO
 import com.example.front.model.UserInfoDTO
+import com.example.front.model.UserLoginDTO
 import com.google.gson.internal.GsonBuildConfig
 import retrofit2.Call
 import retrofit2.http.Body
@@ -17,7 +19,15 @@ interface ApiClientService {
     @GET("api주소")
     fun getUserInfo(): Call<UserInfoDTO>
 
+    @GET("api주소")
+    fun getLogin(): Call<UserLoginDTO>
+
     // Json
-    @POST("/api/v1/init") // Call<UserInfoDTO> 데이터를 받을 data class
-    fun initRequest(@Body userInfoDto: UserInfoDTO): Call<UserInfoDTO> // UserInfoDTO 요청을 보낼 Json Data Class
+    //login
+    @POST("/kick-off/user/login") // Call<UserLoginDTO> 데이터를 받을 data class
+    fun userLoginRequest(@Body userLoginDTO: UserLoginDTO): Call<ResponceDTO> // UserInfoDTO 요청을 보낼 Json Data Class
+
+    //signUp
+    @POST("/kick-off/user/join") // Call<UserInfoDTO> 데이터를 받을 data class
+    fun userInfoRequest(@Body userInfoDto: UserInfoDTO): Call<ResponceDTO> // UserInfoDTO 요청을 보낼 Json Data Class
 }
