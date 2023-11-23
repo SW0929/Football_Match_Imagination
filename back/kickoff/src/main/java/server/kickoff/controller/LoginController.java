@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +15,7 @@ import server.kickoff.service.MemberService;
 
 import java.util.Optional;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/kick-off")
@@ -26,6 +28,7 @@ public class LoginController {
         if (bindingResult.hasErrors()) {
             // 에러 응답 JSON 반환 로직
         }
+        log.info("login ok");
         Optional<Member> optionalMember = memberService.memberLogin(form.getLoginId(), form.getPassword());
 
         if (optionalMember.isPresent()) {

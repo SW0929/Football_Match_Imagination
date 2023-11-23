@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import server.kickoff.domain.Member;
 import server.kickoff.repository.MemberJoinDto;
 import server.kickoff.service.MemberService;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/kick-off")
@@ -22,7 +24,7 @@ public class MemberController {
 
     @PostMapping("/user/join")
     public CreateMemberResponse joinMember(@Valid @RequestBody MemberJoinDto joinDto) {
-
+        log.info("joinMember");
         Member member = new Member();
         member.settingMemberInfo( joinDto.getUserId(),
                 joinDto.getPassword(),
@@ -33,14 +35,15 @@ public class MemberController {
                 joinDto.getPosition());
 
         Long id = memberService.join(member);
-        return new CreateMemberResponse(id);
+        return new CreateMemberResponse(true,id+" 유저가 생성");
     }
 
 
     @Data
     @AllArgsConstructor
     static class CreateMemberResponse {
-        private Long id;
+        private boolean status;
+        private String message;
 
     }
 }
