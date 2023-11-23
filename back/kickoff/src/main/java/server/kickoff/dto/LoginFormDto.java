@@ -1,10 +1,10 @@
-package server.kickoff.controller;
+package server.kickoff.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class LoginForm {
+public class LoginFormDto {
 
     @NotBlank
     private String loginId;

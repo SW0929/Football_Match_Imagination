@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import server.kickoff.domain.Member;
-import server.kickoff.repository.MemberJoinDto;
+import server.kickoff.dto.MemberJoinDto;
+import server.kickoff.dto.ResponseDto;
 import server.kickoff.service.MemberService;
 
 @Slf4j
@@ -23,7 +24,7 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping("/user/join")
-    public CreateMemberResponse joinMember(@Valid @RequestBody MemberJoinDto joinDto) {
+    public ResponseDto joinMember(@Valid @RequestBody MemberJoinDto joinDto) {
         log.info("joinMember");
         Member member = new Member();
         member.settingMemberInfo( joinDto.getUserId(),
@@ -35,7 +36,7 @@ public class MemberController {
                 joinDto.getPosition());
 
         Long id = memberService.join(member);
-        return new CreateMemberResponse(true,id+" 유저가 생성");
+        return new ResponseDto(id+" 유저가 생성",null);
     }
 
 

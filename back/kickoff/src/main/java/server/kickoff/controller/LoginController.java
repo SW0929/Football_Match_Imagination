@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import server.kickoff.domain.Member;
+import server.kickoff.dto.LoginFormDto;
+import server.kickoff.dto.ResponseDto;
 import server.kickoff.service.MemberService;
 
 import java.util.Optional;
@@ -24,19 +26,15 @@ public class LoginController {
     private final MemberService memberService;
 
     @PostMapping("/user/login")
-    public LoginMemberResponse memberLogin(@RequestBody @Valid LoginForm form, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            // 에러 응답 JSON 반환 로직
-        }
+    public ResponseDto memberLogin(@RequestBody @Valid LoginFormDto form) {
         log.info("login ok");
         Optional<Member> optionalMember = memberService.memberLogin(form.getLoginId(), form.getPassword());
-
         if (optionalMember.isPresent()) {
-            return new LoginMemberResponse(true, "Login successful");
+            return new ResponseDto("Login successful",form.getLoginId());
         }
 
         //로그인 실패 로직
-        return new LoginMemberResponse(false, "Login fail");
+        return new ResponseDto("Login fail",form.getLoginId());
     }
 
 
