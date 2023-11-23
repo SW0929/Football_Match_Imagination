@@ -1,9 +1,8 @@
 package server.kickoff.domain;
 
-import lombok.Data;
+import lombok.*;
 
 import java.sql.Timestamp;
-
 @Data
 public class Member {
 
@@ -26,9 +25,10 @@ public class Member {
     private Timestamp createDate;
 
     public Member() {
+        this.createDate = new Timestamp(System.currentTimeMillis());
     }
 
-    public Member(String userId, String password, String userName, String gender, Integer age, String phoneNumber, String position, Timestamp createDate) {
+    public void settingMemberInfo(String userId, String password, String userName, String gender, Integer age, String phoneNumber, String position) {
         this.userId = userId;
         this.password = password;
         this.userName = userName;
@@ -36,6 +36,5 @@ public class Member {
         this.age = age;
         this.phoneNumber = phoneNumber;
         this.position = position;
-        this.createDate = createDate;
     }
 }

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import server.kickoff.domain.Member;
 
 import javax.sql.DataSource;
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -49,6 +50,25 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
         String sql = "select id, user_id, password, user_name, gender, age, phone_number, position, create_date from member where id = :id";
         try {
             SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
+            Member member = template.queryForObject(sql, param, MemberRowMapper());
+            return Optional.of(member);
+        } catch (EmptyResultDataAccessException e) {
+            return Optional.empty();
+        }
+    }
+
+    @Override
+    public List<Member> findByUserId(String userId) {
+        String sql = "select id, user_id, password, user_name, gender, age, phone_number, position, create_date from member where user_id = :user_id";
+        SqlParameterSource param = new MapSqlParameterSource("user_id", userId);
+        return template.query(sql, param, MemberRowMapper());
+    }
+
+    @Override
+    public Optional<Member> findByLoginIdAndPassword(String userId, String password) {
+        String sql = "select id, user_id, password, user_name, gender, age, phone_number, position, create_date from member where user_id = :user_id and password = :password";
+        try {
+            SqlParameterSource param = new MapSqlParameterSource().addValue("user_id", userId).addValue("password", password);
             Member member = template.queryForObject(sql, param, MemberRowMapper());
             return Optional.of(member);
         } catch (EmptyResultDataAccessException e) {
