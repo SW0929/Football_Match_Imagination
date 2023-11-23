@@ -1,5 +1,8 @@
 package server.kickoff.exception;
 
+import lombok.ToString;
+
+@ToString
 public class DuplicationException extends RuntimeException{
     public DuplicationException() {
         super();
