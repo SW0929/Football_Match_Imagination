@@ -18,7 +18,6 @@ public class MemberJoinDto {
 
     private String phoneNumber;
 
-    private String position;
 
     public MemberJoinDto() {
     }

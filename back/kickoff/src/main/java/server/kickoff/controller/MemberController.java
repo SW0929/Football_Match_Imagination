@@ -32,8 +32,7 @@ public class MemberController {
                 joinDto.getUserName(),
                 joinDto.getGender(),
                 joinDto.getAge(),
-                joinDto.getPhoneNumber(),
-                joinDto.getPosition());
+                joinDto.getPhoneNumber());
 
         Long id = memberService.join(member);
         return new ResponseDto(id+" 유저가 생성",null);

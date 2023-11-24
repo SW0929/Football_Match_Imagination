@@ -31,8 +31,7 @@ class MemberRepositoryTest {
                 "memberA",
                 "F",
                 20,
-                "01096485709",
-                "GK");
+                "01096485709");
 
         //when
         Member savedMember = memberRepository.save(member);
@@ -52,8 +51,7 @@ class MemberRepositoryTest {
                 "memberA",
                 "F",
                 20,
-                "01096485709",
-                "GK");
+                "01096485709");
         Member saveMember = memberRepository.save(member);
 
         //when
@@ -74,8 +72,7 @@ class MemberRepositoryTest {
                 "memberA",
                 "F",
                 20,
-                "01096485709",
-                "GK");
+                "01096485709");
         Member saveMember = memberRepository.save(member);
         //when
         List<Member> members = memberRepository.findByUserId(saveMember.getUserId());

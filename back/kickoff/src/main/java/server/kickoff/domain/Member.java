@@ -20,7 +20,6 @@ public class Member {
 
     private String phoneNumber;
 
-    private String position;
 
     private Timestamp createDate;
 
@@ -28,13 +27,12 @@ public class Member {
         this.createDate = new Timestamp(System.currentTimeMillis());
     }
 
-    public void settingMemberInfo(String userId, String password, String userName, String gender, Integer age, String phoneNumber, String position) {
+    public void settingMemberInfo(String userId, String password, String userName, String gender, Integer age, String phoneNumber) {
         this.userId = userId;
         this.password = password;
         this.userName = userName;
         this.gender = gender;
         this.age = age;
         this.phoneNumber = phoneNumber;
-        this.position = position;
     }
 }
