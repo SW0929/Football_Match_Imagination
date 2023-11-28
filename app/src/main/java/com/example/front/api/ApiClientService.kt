@@ -3,7 +3,6 @@ package com.example.front.api
 import com.example.front.model.ResponceDTO
 import com.example.front.model.UserInfoDTO
 import com.example.front.model.UserLoginDTO
-import com.google.gson.internal.GsonBuildConfig
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -21,6 +20,7 @@ interface ApiClientService {
 
     @GET("api주소")
     fun getLogin(): Call<UserLoginDTO>
+
 
     // Json
     //login
