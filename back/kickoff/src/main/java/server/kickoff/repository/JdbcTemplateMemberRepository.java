@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Slf4j
-@Repository
+//@Repository
 public class JdbcTemplateMemberRepository implements MemberRepository{
 
     private final NamedParameterJdbcTemplate template;
