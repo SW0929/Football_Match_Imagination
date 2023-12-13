@@ -35,15 +35,8 @@ public class MemberController {
                 joinDto.getPhoneNumber());
 
         Long id = memberService.join(member);
-        return new ResponseDto(id+" 유저가 생성",null);
+        return new ResponseDto(id + " 유저가 생성",null);
     }
 
 
-    @Data
-    @AllArgsConstructor
-    static class CreateMemberResponse {
-        private boolean status;
-        private String message;
-
-    }
 }
