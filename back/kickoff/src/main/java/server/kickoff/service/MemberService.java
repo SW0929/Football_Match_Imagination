@@ -23,14 +23,15 @@ public class MemberService {
         return member.getId();
     }
 
+    @Transactional
+    public Optional<Member> memberLogin(String loginId, String passwordId) {
+        return memberRepository.findByLoginIdAndPassword(loginId, passwordId);
+    }
+
     private void validateDuplicateMember(Member member) {
         List<Member> members = memberRepository.findByUserId(member.getUserId());
         if(!members.isEmpty()){
             throw new DuplicationException("이미 존재하는 아이디 입니다.");
         }
-    }
-
-    public Optional<Member> memberLogin(String loginId, String passwordId) {
-        return memberRepository.findByLoginIdAndPassword(loginId, passwordId);
     }
 }
