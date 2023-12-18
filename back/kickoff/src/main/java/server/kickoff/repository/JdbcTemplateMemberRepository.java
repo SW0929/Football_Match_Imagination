@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Slf4j
-@Repository
+//@Repository
 public class JdbcTemplateMemberRepository implements MemberRepository{
 
     private final NamedParameterJdbcTemplate template;
@@ -47,7 +47,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
 
     @Override
     public Optional<Member> findById(Long id) {
-        String sql = "select id, user_id, password, user_name, gender, age, phone_number, position, create_date from member where id = :id";
+        String sql = "select id, user_id, password, user_name, gender, age, phone_number, create_date from member where id = :id";
         try {
             SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
             Member member = template.queryForObject(sql, param, MemberRowMapper());
@@ -59,14 +59,14 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
 
     @Override
     public List<Member> findByUserId(String userId) {
-        String sql = "select id, user_id, password, user_name, gender, age, phone_number, position, create_date from member where user_id = :user_id";
+        String sql = "select id, user_id, password, user_name, gender, age, phone_number, create_date from member where user_id = :user_id";
         SqlParameterSource param = new MapSqlParameterSource("user_id", userId);
         return template.query(sql, param, MemberRowMapper());
     }
 
     @Override
     public Optional<Member> findByLoginIdAndPassword(String userId, String password) {
-        String sql = "select id, user_id, password, user_name, gender, age, phone_number, position, create_date from member where user_id = :user_id and password = :password";
+        String sql = "select id, user_id, password, user_name, gender, age, phone_number, create_date from member where user_id = :user_id and password = :password";
         try {
             SqlParameterSource param = new MapSqlParameterSource().addValue("user_id", userId).addValue("password", password);
             Member member = template.queryForObject(sql, param, MemberRowMapper());

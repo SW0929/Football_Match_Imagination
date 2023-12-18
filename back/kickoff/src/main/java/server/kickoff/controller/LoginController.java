@@ -37,11 +37,4 @@ public class LoginController {
         return new ResponseDto("Login fail",form.getLoginId());
     }
 
-
-    @Data
-    @AllArgsConstructor
-    static class LoginMemberResponse {
-        private boolean status;
-        private String message;
-    }
 }
