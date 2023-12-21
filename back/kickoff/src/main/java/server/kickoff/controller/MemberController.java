@@ -6,13 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import server.kickoff.domain.Member;
 import server.kickoff.dto.MemberJoinDto;
 import server.kickoff.dto.ResponseDto;
+import server.kickoff.repository.MemberUpdateDto;
 import server.kickoff.service.MemberService;
 
 @Slf4j
@@ -36,6 +34,12 @@ public class MemberController {
 
         Long id = memberService.join(member);
         return new ResponseDto(id + " 유저가 생성",null);
+    }
+
+    @GetMapping("/user/mypage")
+    public ResponseDto editMember( @RequestBody MemberUpdateDto updateDto) {
+
+        return new ResponseDto( "수정되었습니다.",null);
     }
 
 
